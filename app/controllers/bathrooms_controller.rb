@@ -4,20 +4,39 @@ class BathroomsController < ApplicationController
   end
 
   def new
-    @bathroom = Bathroom.new
+    if request.xhr?
+      @bathroom = Bathroom.new
+      render :new, layout: false, locals: {bathroom: @bathroom}
+    else
+      @bathroom = Bathroom.new
+    end
   end
 
   def create
-    if logged_in?
-      @bathroom = Bathroom.new(bathroom_params)
-      @bathroom.user_id = session[:user_id]
-      if @bathroom.save
-        redirect_to root_path
+    if request.xhr?
+      if logged_in?
+        @bathroom = Bathroom.new(bathroom_params)
+        @bathroom.user_id = session[:user_id]
+        if @bathroom.save
+          render partial: 'bathroom', layout: false, locals: {bathroom: @bathroom}
+        else
+          render text: "You filled out the form incorrectly", status: 400
+        end
       else
-        render :new
+        render text: "You need to login", status: 400
       end
     else
-      redirect_to '/login'
+      if logged_in?
+        @bathroom = Bathroom.new(bathroom_params)
+        @bathroom.user_id = session[:user_id]
+        if @bathroom.save
+          redirect_to root_path
+        else
+          render :new
+        end
+      else
+        redirect_to '/login'
+      end
     end
   end
 

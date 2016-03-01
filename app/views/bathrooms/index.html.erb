@@ -1,8 +1,13 @@
 <h1>Welcome to Prime Porcelain</h1>
 <h2>The leader in Bathroom referall</h2>
-<%= link_to "Add a Bathroom", new_bathroom_path %>
+<%= link_to "Add a Bathroom", new_bathroom_path, :class => "new-bathroom" %>
+<div id="create-bathroom">
+</div>
+<p class="errors"></p>
+<div class="bathroom-container">
 <%@bathrooms.each do |bathroom| %>
   <p><%= link_to bathroom.location, bathroom_path(bathroom) %></p>
   <p><%= bathroom.description %></p>
   <p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <%end%>
+</div>
