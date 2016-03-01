@@ -1,4 +1,5 @@
-<h1>Welcome to Bathroom Book</h1>
+<h1>Welcome to Prime Porcelain</h1>
+<h2>The leader in Bathroom referall</h2>
 <%= link_to "Add a Bathroom", new_bathroom_path %>
 <%@bathrooms.each do |bathroom| %>
   <p><%= link_to bathroom.location, bathroom_path(bathroom) %></p>

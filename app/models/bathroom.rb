@@ -1,7 +1,7 @@
 class Bathroom < ActiveRecord::Base
   belongs_to :user
-  has_many :comments
-  has_many :ratings
+  has_many :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   validates :location, presence: true
   validates :description, presence: true
   validates :user, presence: true
