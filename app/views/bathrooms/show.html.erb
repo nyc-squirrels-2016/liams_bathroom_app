@@ -1,4 +1,5 @@
 <h1>Welcome to the Bathroom Book page for <%= @bathroom.location %>'s Bathroom</h1>
+<h3>Average rating: <%= @bathroom.average_rating %></h3>
 <%= link_to "Edit", edit_bathroom_path(@bathroom) %>
 <%= link_to "Destroy", bathroom_path(@bathroom), method: :delete %>
 <%= link_to "Add a Comment", new_bathroom_comment_path(bathroom_id: params[:id]) %>
@@ -7,6 +8,12 @@
 <p>Author Rating: <%= @bathroom.author_rating %></p>
 <p>Description: <%= @bathroom.description %></p>
 <img src="<%= @bathroom.picture_url %>"/>
+<h1>Rate this bathroom</h1>
+<%= form_for [@bathroom, @bathroom.ratings.new] do |f| %>
+<%= f.label :number %>
+<%= f.select :number, (0..10) %>
+<%= f.submit "Rate"%>
+<%end%>
 <p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <%if @bathroom.comments.any? %>
 <% @bathroom.comments.each do |comment| %>
