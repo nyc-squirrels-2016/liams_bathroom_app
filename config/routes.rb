@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resource :users, only: [:create]
   resources :bathrooms do
     resources :comments
-    resources :ratings only: [:create]
+    resources :ratings, only: [:create]
   end
 
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
 
-  root 'sessions#new'
+  root 'bathrooms#index'
   get 'register' => 'users#new'
   get 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new'

@@ -1,0 +1,7 @@
+<h1>Welcome to Bathroom Book</h1>
+<%= link_to "Add a Bathroom", new_bathroom_path %>
+<%@bathrooms.each do |bathroom| %>
+  <p><%= link_to bathroom.location, bathroom_path(bathroom) %></p>
+  <p><%= bathroom.description %></p>
+  <p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<%end%>
