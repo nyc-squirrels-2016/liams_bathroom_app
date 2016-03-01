@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resource :sessions, only: [:create]
   resource :users, only: [:create]
   resources :bathrooms do
-    resources :comments
+    resources :comments, except: [:index, :show]
     resources :ratings, only: [:create]
   end
 

@@ -49,8 +49,10 @@ class BathroomsController < ApplicationController
     @bathroom = Bathroom.find(params[:id])
     if logged_in? && @bathroom.user.id == current_user.id
       @bathroom.destroy
+      redirect_to root_path
+    else
+      redirect_to '/login'
     end
-    redirect_to root_path
   end
 
   private

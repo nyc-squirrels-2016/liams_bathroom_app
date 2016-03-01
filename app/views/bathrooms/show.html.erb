@@ -1,8 +1,18 @@
 <h1>Welcome to the Bathroom Book page for <%= @bathroom.location %>'s Bathroom</h1>
 <%= link_to "Edit", edit_bathroom_path(@bathroom) %>
 <%= link_to "Destroy", bathroom_path(@bathroom), method: :delete %>
+<%= link_to "Add a Comment", new_bathroom_comment_path(bathroom_id: params[:id]) %>
 <p>Posted By: <%= @bathroom.user.username %></p>
 <p>Location: <%= @bathroom.location %></p>
 <p>Author Rating: <%= @bathroom.author_rating %></p>
 <p>Description: <%= @bathroom.description %></p>
 <img src="<%= @bathroom.picture_url %>"/>
+<p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<%if @bathroom.comments.any? %>
+<% @bathroom.comments.each do |comment| %>
+<p><%= comment.text %></p>
+<p>By: <%= comment.user.username %></p>
+<p><%= link_to "Edit" ,edit_bathroom_comment_path(bathroom_id: params[:id], id: comment.id) %></p>
+<p>===========================================================================</p>
+<%end%>
+<%end%>
