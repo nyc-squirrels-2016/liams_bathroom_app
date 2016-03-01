@@ -1,0 +1,27 @@
+<h1>Edit Your Bathroom</h1>
+<% if @bathroom.errors.any?  %>
+  <ul>
+  <% @bathroom.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+<%= form_for @bathroom do |f|%>
+  <div>
+    <%= f.label :loaction %>
+    <%= f.text_field :location %>
+  </div>
+  <div>
+    <%= f.label :author_rating %>
+    <%= f.text_field :author_rating %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :picture_url %>
+    <%= f.text_field :picture_url %>
+  </div>
+  <%= f.submit %>
+<%end%>

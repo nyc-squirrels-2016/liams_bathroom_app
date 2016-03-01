@@ -1,0 +1,9 @@
+<h1>Edit a Comment</h1>
+<%= form_for [@comment.bathroom , @comment] do |f|%>
+<div>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
+</div>
+  <%= f.submit "Edit Comment" %>
+<%end%>
+<button><%= link_to "Delete Comment", [@comment.bathroom, @comment], method: :delete%></button>
