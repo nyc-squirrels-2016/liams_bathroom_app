@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if logged_in? && @comment.user.id == current_user.id
       if @comment.update(comment_params)
-        redirect_to
+        redirect_to bathroom_path(@comment.bathroom)
       else
         render :new
       end

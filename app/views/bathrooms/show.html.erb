@@ -1,8 +1,10 @@
 <h1>Welcome to the Prime Porcelain page for <%= @bathroom.location %>'s Bathroom</h1>
 <h3>Average rating: <%= @bathroom.average_rating %></h3>
-<%= link_to "Edit", edit_bathroom_path(@bathroom) %>
-<%= link_to "Destroy", bathroom_path(@bathroom), method: :delete %>
-<%= link_to "Add a Comment", new_bathroom_comment_path(bathroom_id: params[:id]) %>
+<div class="button-group">
+<%= link_to "Edit", edit_bathroom_path(@bathroom), :class => "button" %>
+<%= link_to "Destroy", bathroom_path(@bathroom), method: :delete, :class => "button" %>
+<%= link_to "Add a Comment", new_bathroom_comment_path(bathroom_id: params[:id]), :class => "button" %>
+</div>
 <p>Posted By: <%= @bathroom.user.username %></p>
 <p>Location: <%= @bathroom.location %></p>
 <p>Author Rating: <%= @bathroom.author_rating %></p>
@@ -16,10 +18,16 @@
 <%end%>
 <p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <%if @bathroom.comments.any? %>
+<ul class="accordion" data-accordion data-allow-all-closed="true">
 <% @bathroom.comments.each do |comment| %>
-<p><%= comment.text %></p>
-<p>By: <%= comment.user.username %></p>
+  <li>
+    <a href="#" class="accordion-title"><%= comment.user.username %></a>
+    <div class="accordion-content" data-tab-content>
+      <p><%= comment.text %></p>
+    </div>
+  </li>
 <p><%= link_to "Edit" ,edit_bathroom_comment_path(bathroom_id: params[:id], id: comment.id) %></p>
 <p>===========================================================================</p>
 <%end%>
+</ul>
 <%end%>

@@ -8,14 +8,19 @@
 </head>
 <body>
   <nav>
-    <ul>
-      <%if logged_in? %>
-        <li><a href="/logout">Logout</a></li>
-      <%else%>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign Up!</a></li>
-      <%end%>
-        <li><a href="/">Home</a></li>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+        <a href="#">Options</a>
+
+        <ul class="menu">
+          <%if logged_in? %>
+            <li><a href="/logout">Logout</a></li>
+          <%else%>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Sign Up!</a></li>
+          <%end%>
+            <li><a href="/">Home</a></li>
+        </ul>
     </ul>
   </nav>
 

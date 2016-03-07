@@ -6,8 +6,11 @@
 <p class="errors"></p>
 <div class="bathroom-container">
 <%@bathrooms.each do |bathroom| %>
-  <p><%= link_to bathroom.location, bathroom_path(bathroom) %></p>
-  <p><%= bathroom.description %></p>
-  <p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<ul class="accordion" data-accordion data-allow-all-closed="true">
+  <liclass="accordion-item is-active" data-accordion-item><%= link_to bathroom.location, bathroom_path(bathroom), :class => "accordion-title"  %>
+  <div class="accordion-content" data-tab-content>
+    <%= bathroom.description %>
+    <%= link_to bathroom.location, bathroom_path(bathroom) %>
+  </div>
 <%end%>
 </div>
