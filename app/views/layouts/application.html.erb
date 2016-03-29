@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>x
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -15,12 +15,12 @@
     <nav>
       <ul>
         <% if logged_in? %>
-        <li><%= link_to "Logout", logout_path %></li>
+        <li><%= link_to "Logout", logout_path, :class => "button"%></li>
         <%else%>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Register", register_path %></li>
+        <li><%= link_to "Login", login_path, :class => "button login-button" %></li>
+        <li><%= link_to "Register", register_path, :class => "button register-button" %></li>
         <%end%>
-        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Home", root_path, :class => "button"%></li>
       </ul>
     </nav>
 

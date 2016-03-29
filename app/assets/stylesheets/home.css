@@ -1,0 +1,15 @@
+.header {
+	text-align: center;
+}
+
+#link-header {
+	margin-left: 45%;
+	margin-right: 45%;
+}
+
+.bathroom {
+	padding: 5px;
+	border: 1px solid black;
+	width: 50em;
+	margin: 0em 30em 3em 20em;
+}
