@@ -1,5 +1,6 @@
 .header {
 	text-align: center;
+	font-family: 'Cinzel Decorative', cursive;
 }
 
 #link-header {
@@ -27,4 +28,8 @@ nav ul {
 
 nav ul li {
 	display: inline-block;
+}
+
+body {
+	background-color: #FFFFF0;
 }
