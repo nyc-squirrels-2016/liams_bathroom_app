@@ -1,0 +1,32 @@
+.create-post {
+	position: relative;
+	top: 24px;
+}
+
+.bathroom-container {
+	width: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+
+.link-container {
+	position: relative;
+	width: 50%;
+	margin-right: 20em;
+	margin-left: 13em;
+}
+
+.num-label {
+	font-size: 1.5em;
+}
+
+.new-comment {
+	width: 70em;
+	margin-right: 10em;
+	margin-left: 34em;
+}
+
+.submit-comment {
+	position: relative;
+	margin-left: 7.5em;
+}

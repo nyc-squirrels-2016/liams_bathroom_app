@@ -1,20 +1,35 @@
-<h1>Welcome to the Prime Porcelain page for <%= @bathroom.location %>'s Bathroom</h1>
-<h3>Average rating: <%= @bathroom.average_rating %></h3>
-<%= link_to "Edit", edit_bathroom_path(@bathroom) %>
-<%= link_to "Destroy", bathroom_path(@bathroom), method: :delete %>
-<%= link_to "Add a Comment", new_bathroom_comment_path(bathroom_id: params[:id]) %>
-<p>Posted By: <%= @bathroom.user.username %></p>
-<p>Location: <%= @bathroom.location %></p>
-<p>Author Rating: <%= @bathroom.author_rating %></p>
-<p>Description: <%= @bathroom.description %></p>
+<div class="errors">
+</div>
+<h1 class="header">Welcome to the Prime Porcelain page for <%= @bathroom.location %>'s Bathroom</h1>
+<div class="bathroom-container">
+<h3 class="header">Average rating: <%= @bathroom.average_rating %></h3>
+<div class="link-container">
+<%= link_to "Edit", edit_bathroom_path(@bathroom) , :class => "button link-header"%>
+<%= link_to "Destroy", bathroom_path(@bathroom), method: :delete, :class => "button link-header"%>
+<%= link_to "Add a Comment", new_bathroom_comment_path(bathroom_id: params[:id]), :class => "button link-header comment-new" %>
+</div>
+<p class="header">Posted By: <%= @bathroom.user.username %></p>
+<p class="header">Location: <%= @bathroom.location %></p>
+<p class="header">Author Rating: <%= @bathroom.author_rating %></p>
+<p class="header">Description: <%= @bathroom.description %></p>
 <img src="<%= @bathroom.picture_url %>"/>
-<h1>Rate this bathroom</h1>
+<h1 class="header">Rate this bathroom</h1>
 <%= form_for [@bathroom, @bathroom.ratings.new] do |f| %>
-<%= f.label :number %>
-<%= f.select :number, (0..10) %>
-<%= f.submit "Rate"%>
+<div class="row">
+	<div class="large-2 columns">
+		<%= f.label "Rating" , :class => "num-label"%>
+	</div>
+	<div class="large-8 columns">
+		<%= f.select :number, (0..10) %>
+	</div>
+	<div class="large-2 columns">
+		<%= f.submit "Rate", :class => "button"%>
+	</div>
+</div>
 <%end%>
-<p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+</div>
+<div class="comment-container">
+</div>
 <%if @bathroom.comments.any? %>
 <% @bathroom.comments.each do |comment| %>
 <p><%= comment.text %></p>

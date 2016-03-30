@@ -2,6 +2,9 @@ class CommentsController < ApplicationController
   def new
     bathroom = Bathroom.find(params[:bathroom_id])
     @comment = bathroom.comments.new
+    if request.xhr?
+      render :new, layout: false
+    end
   end
 
   def create
