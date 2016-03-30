@@ -1,9 +1,15 @@
-<h1>Edit a Comment</h1>
+<h3 class="header">Edit Comment</h3>
+<div class="new-comment">
 <%= form_for [@comment.bathroom , @comment] do |f|%>
-<div>
-  <%= f.label :text %>
+<div class="row">
+<div class="large-4 columns">
+  <%= f.label :text , :class => "num-label header"%>
   <%= f.text_area :text %>
 </div>
-  <%= f.submit "Edit Comment" %>
+</div>
+<div class="submit-comment">
+  <%= f.submit "Add Comment" , :class => "button" %>
+</div>
 <%end%>
-<button><%= link_to "Delete Comment", [@comment.bathroom, @comment], method: :delete%></button>
+<button><%= link_to "Delete Comment", [@comment.bathroom, @comment], method: :delete, :class => "button delete-button", :id => "delete-button" %></button>
+</div>

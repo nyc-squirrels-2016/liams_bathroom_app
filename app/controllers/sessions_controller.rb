@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if request.xhr?
+      render :new, layout: false
+    end
   end
 
   def create

@@ -13,4 +13,8 @@ class Bathroom < ActiveRecord::Base
   def average_rating
     self.ratings.average(:number)
   end
+
+  def self.search(search)
+    where("location ILIKE ?", "%#{search}%")
+  end
 end

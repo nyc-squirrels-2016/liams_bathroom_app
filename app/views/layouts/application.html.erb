@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>BathroomApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav>
-    <ul>
-      <%if logged_in? %>
-        <li><a href="/logout">Logout</a></li>
-      <%else%>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign Up!</a></li>
-      <%end%>
-        <li><a href="/">Home</a></li>
-    </ul>
-  </nav>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+    <nav>
+      <ul>
+        <% if logged_in? %>
+        <li><%= link_to "Logout", logout_path, :class => "button"%></li>
+        <%else%>
+        <li><%= link_to "Login", login_path, :class => "button login-button" %></li>
+        <li><%= link_to "Register", register_path, :class => "button register-button" %></li>
+        <%end%>
+        <li><%= link_to "Home", root_path, :class => "button"%></li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+
+  </body>
 </html>

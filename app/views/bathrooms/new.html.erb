@@ -1,4 +1,4 @@
-<h1>Post a new Bathroom</h1>
+<h1 class="header">Post a new Bathroom</h1>
 <% if @bathroom.errors.any?  %>
   <ul>
   <% @bathroom.errors.full_messages.each do |msg| %>
@@ -7,22 +7,30 @@
   </ul>
 <% end %>
 <%= form_for @bathroom do |f|%>
-  <div>
+<div class="row">
+  <div class="large-6 columns">
     <%= f.label :loaction %>
     <%= f.text_field :location %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= f.label :author_rating %>
     <%= f.text_field :author_rating %>
   </div>
-  <div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-  <div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
     <%= f.label :picture_url %>
     <%= f.text_field :picture_url %>
   </div>
-  <%= f.submit %>
+  <div class="large-6 columns">
+    <%= f.submit :class => "button create-post"%>
+  </div>
+</div>
 <%end%>
 

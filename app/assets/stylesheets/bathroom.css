@@ -1,0 +1,55 @@
+.create-post {
+	position: relative;
+	top: 24px;
+}
+
+.bathroom-container {
+	width: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+
+.link-container {
+	position: relative;
+	width: 50%;
+	left: 30%;
+}
+
+.num-label {
+	font-size: 1.5em;
+}
+
+.new-comment {
+	width: 70em;
+	margin-right: 10em;
+	margin-left: 34em;
+}
+
+.submit-comment {
+	position: relative;
+	margin-left: 7.5em;
+}
+
+.comments {
+	padding: 5px;
+	border: 1px solid black;
+	width: 50%;
+	margin: 0em 25% 3em 25%;
+}
+
+.comment {
+	padding: 5px;
+	margin: 2px;
+	border-bottom: 1px solid black;
+}
+
+#delete-button {
+	margin-left: 7.8em;
+}
+
+.img {
+	position: relative;
+	left: 25%;
+	width: 50%;
+	border-radius: 100%;
+}

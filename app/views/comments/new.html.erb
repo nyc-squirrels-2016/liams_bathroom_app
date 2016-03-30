@@ -1,8 +1,14 @@
-<h1>Make a new Comment</h1>
+<h3 class="header">Make a new Comment</h3>
+<div class="new-comment">
 <%= form_for [@comment.bathroom , @comment] do |f|%>
-<div>
-  <%= f.label :text %>
+<div class="row">
+<div class="large-4 columns">
+  <%= f.label :text , :class => "num-label header"%>
   <%= f.text_area :text %>
 </div>
-  <%= f.submit "Add Comment" %>
+</div>
+<div class="submit-comment">
+  <%= f.submit "Add Comment" , :class => "button" %>
+</div>
 <%end%>
+</div>

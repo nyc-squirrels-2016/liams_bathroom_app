@@ -1,8 +1,25 @@
-<h1>Welcome to Prime Porcelain</h1>
-<h2>The leader in Bathroom referall</h2>
-<%= link_to "Add a Bathroom", new_bathroom_path %>
-<%@bathrooms.each do |bathroom| %>
-  <p><%= link_to bathroom.location, bathroom_path(bathroom) %></p>
-  <p><%= bathroom.description %></p>
-  <p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
-<%end%>
+<div class="errors">
+</div>
+<h1 class="header">Welcome to Prime Porcelain</h1>
+<h2 class="header">The leader in Bathroom referall</h2>
+<%= link_to "Add a Bathroom", new_bathroom_path, :id => "link-header" %>
+<div id="user-box">
+</div>
+<%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
+<div class = "row">
+	<div class="large-6 columns">
+		<%= text_field_tag :search, params[:search], placeholder: "Search Locations" %>
+	</div>
+	<div class="large-6 columns">
+		<%= submit_tag "Search" , :class => "button"%>
+	</div>
+</div>
+<% end %>
+<div class="container">
+	<%@bathrooms.each do |bathroom| %>
+	<div class="bathroom">
+	  <p><%= link_to bathroom.location, bathroom_path(bathroom) %></p>
+	  <p><%= bathroom.description %></p>
+	</div>
+	<%end%>
+</div>
