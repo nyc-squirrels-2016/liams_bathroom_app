@@ -12,7 +12,7 @@
 <p class="header">Location: <%= @bathroom.location %></p>
 <p class="header">Author Rating: <%= @bathroom.author_rating %></p>
 <p class="header">Description: <%= @bathroom.description %></p>
-<img src="<%= @bathroom.picture_url %>"/>
+<img src="<%= @bathroom.picture_url %>" class="img"/>
 <h1 class="header">Rate this bathroom</h1>
 <%= form_for [@bathroom, @bathroom.ratings.new] do |f| %>
 <div class="row">
@@ -30,11 +30,14 @@
 </div>
 <div class="comment-container">
 </div>
+<div class="comments">
 <%if @bathroom.comments.any? %>
-<% @bathroom.comments.each do |comment| %>
+<% @bathroom.comments.reverse.each do |comment| %>
+<div class="comment">
 <p><%= comment.text %></p>
 <p>By: <%= comment.user.username %></p>
 <p><%= link_to "Edit" ,edit_bathroom_comment_path(bathroom_id: params[:id], id: comment.id) %></p>
-<p>===========================================================================</p>
+</div>
 <%end%>
 <%end%>
+</div>

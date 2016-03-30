@@ -13,7 +13,11 @@ class CommentsController < ApplicationController
       @comment = bathroom.comments.new(comment_params)
       @comment.user_id = session[:user_id]
       if @comment.save
-        redirect_to bathroom_path(bathroom)
+        if request.xhr?
+          render partial: "comment", layout: false, locals: {comment: @comment}
+        else
+          redirect_to(@comment.bathroom)
+        end
       else
         render :new
       end

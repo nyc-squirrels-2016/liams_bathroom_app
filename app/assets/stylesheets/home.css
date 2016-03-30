@@ -13,3 +13,18 @@
 	width: 50em;
 	margin: 0em 30em 3em 20em;
 }
+
+#search-form {
+	width: 50%;
+	margin-right: 25%;
+	margin-left: 35%;
+}
+
+nav ul {
+	list-style: none;
+	display: inline-block;
+}
+
+nav ul li {
+	display: inline-block;
+}

@@ -1,6 +1,9 @@
 class BathroomsController < ApplicationController
   def index
     @bathrooms = Bathroom.all
+    if params[:search]
+      @bathrooms = Bathroom.search(params[:search]).order(created_at: :desc)
+    end
   end
 
   def new
@@ -22,7 +25,7 @@ class BathroomsController < ApplicationController
   end
 
   def show
-    @bathroom = Bathroom.find(params[:id])
+    @bathroom = Bathroom.includes(:comments).find(params[:id])
   end
 
   def edit

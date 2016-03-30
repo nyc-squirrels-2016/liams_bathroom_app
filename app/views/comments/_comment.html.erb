@@ -1,0 +1,3 @@
+<p><%= comment.text %></p>
+<p>By: <%= comment.user.username %></p>
+<p><%= link_to "Edit" ,edit_bathroom_comment_path(bathroom_id: comment.bathroom.id, id: comment.id) %></p>

@@ -12,8 +12,7 @@
 .link-container {
 	position: relative;
 	width: 50%;
-	margin-right: 20em;
-	margin-left: 13em;
+	left: 30%;
 }
 
 .num-label {
@@ -29,4 +28,28 @@
 .submit-comment {
 	position: relative;
 	margin-left: 7.5em;
+}
+
+.comments {
+	padding: 5px;
+	border: 1px solid black;
+	width: 50%;
+	margin: 0em 25% 3em 25%;
+}
+
+.comment {
+	padding: 5px;
+	margin: 2px;
+	border-bottom: 1px solid black;
+}
+
+#delete-button {
+	margin-left: 7.8em;
+}
+
+.img {
+	position: relative;
+	left: 25%;
+	width: 50%;
+	border-radius: 100%;
 }
